@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <application android:label="Minimal">
-        <activity android:name="pl.czak.minimal.MainActivity" android:exported="true">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application android:label="Minimal" android:networkSecurityConfig="@xml/network_security_config">
+        <activity android:name="pl.czak.minimal.MainActivity">
+        </activity>
+        <activity android:name=".ListProductActivity">
+        </activity>
+        <activity android:name=".LoginActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ListProductActivity">
-
         </activity>
     </application>
 </manifest>

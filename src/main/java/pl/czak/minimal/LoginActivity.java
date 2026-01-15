@@ -32,7 +32,7 @@ public class LoginActivity extends Activity {
     }
 
     public void login(String username, String password){
-        TokenManagement tokenManagement = new TokenManagement(this);
+        TokenManagement tokenManagement = TokenManagement.getInstance(this);
         Retrofit instance = RetrofitClient.getInstance();
         LoginApiService loginApiService = instance.create(LoginApiService.class);
 
@@ -44,7 +44,7 @@ public class LoginActivity extends Activity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if( response.isSuccessful()){
                     LoginResponse body = response.body();
-                    tokenManagement.saveToken(body.getData().getAccessToken());
+                    tokenManagement.saveToken(body.getData().getAccessToken(), body.getData().getRefreshToken());
                     Toast.makeText(LoginActivity.this, "login success", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);

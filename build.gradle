@@ -63,4 +63,7 @@ dependencies {
 
     // Lifecycle (untuk coroutines)
     implementation 'androidx.lifecycle:lifecycle-runtime:2.6.1'
+
+    //jwt
+    implementation 'com.auth0:java-jwt:4.4.0'
 }
